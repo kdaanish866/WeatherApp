@@ -36,7 +36,7 @@
 
             <!--Details class that defines the details of the weather-->
             <div class="details">
-                <!--Column that shows the humidity-->
+                <!--Column #1 that shows the humidity-->
                 <div class="col">
                     <img src="images/humidity.png">
                     <div>
@@ -44,9 +44,7 @@
                         <p>Humidity</p>
                     </div>
                 </div>
-            </div>
-
-                <!--Column that shows the windspeed-->
+                <!--Column #2 that shows the windspeed-->
                 <div class="col">
                     <img src="images/wind.png">
                     <div>
@@ -54,8 +52,22 @@
                         <p>Wind Speed</p>
                     </div>
                 </div>
+            </div>
         </div>
     </div>
+
+    <script>
+        const apiKey = "41ab1ab256e36829f63fddbcd55a0c41";
+        const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=bangalore";
+
+        async function checkWeather(){
+            const response = await fetch(apiUrl + `&appid = ${apiKey}`);
+            var data = await response.json();
+
+            console.log(data);
+        }
+    checkWeather();
+    </script>
     
 </body>
 </html>
